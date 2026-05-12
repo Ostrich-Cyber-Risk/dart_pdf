@@ -51,7 +51,7 @@ class PrintingPlugin extends PrintingPlatform {
 
   static const _pdfJsCdnPath = 'https://unpkg.com/pdfjs-dist';
 
-  static const _pdfJsVersion = '4.2.67';
+  static const _pdfJsVersion = '5.7.284';
 
   final _loading = Mutex();
 
@@ -84,7 +84,7 @@ class PrintingPlugin extends PrintingPlatform {
         _pdfJsUrlBase = '$_pdfJsCdnPath@$pdfJsVersion/build/';
       }
 
-      // Use dynamic import for ESM modules (pdfjs-dist 4.x ships .mjs only)
+      // Use dynamic import for ESM modules (pdfjs-dist ships .mjs).
       final importUrl = '${_pdfJsUrlBase}pdf.min.mjs';
       final workerUrl = '${_pdfJsUrlBase}pdf.worker.min.mjs';
       await web.window
